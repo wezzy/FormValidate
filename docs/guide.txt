@@ -1,0 +1,40 @@
+REQUIREMENTS
+----------------------------
+FormValidate depends on YUI code (at this time it works with version 2.x) and in particular it requires the following yui components:
+- YUI Global object
+- Events
+- Dom
+- Selector
+
+HOW TO SET VALIDATION RULES
+----------------------------
+There are two ways to specify rules, the first way is to use a custom "validate" attribute in your form fields. The string of this attribute tells
+FormValidate how to check the correctness of the field. For example:
+
+<input type='text' name='userid' id='userid' validate='required#This field is required' />
+(In the above example FormValidate checks that the filed contains at last one character)
+
+The second way is to pass an array of rules to the FormValidate constructor:
+var rules = [];
+rules.push("userid#required#This field is required");
+var validator = new YAHOO.ext.FormValidate(rules);
+(this is exactly the same of the above example)
+
+There is no particular difference in using one way or another, i prefer the attribute because i have the field and the relative rule to the same line but, if you have, for example, many rules to apply to the same field using the attribute solution can be a little confusing.
+
+RULES SYNTAX
+----------------------------
+Rules are extremely simple. There are two special characters when define rules:
+	- The first one is # as you may imagined reading the example above we use this character to separate parameters (we follow YAV here)
+	- The second one is ; that allows you to define more rules in the same line. For example required#This field is required;numeric#wrong format
+	  This is especially useful with inline rules defined using the "validate" attribute
+	
+Every rules begin with a command (see section below) and it's parameter. The list of parameters can vary from command to command and the list of available commands can be extended in the next versions of FormValidate. 
+
+The same syntax apply for rules defined in the attribute and those passed to the constructor, the only difference between those two is that the rules passed to the constructor require one more parameter before the real rule, the element ID. As you can see from the above very simple example the first parameter is the element ID, the rest of the rule is exactly the same to the one passed using the attribute.
+
+COMMAND
+----------------------------
+no			-	a special command that tell FormValidate not to perform checks on the element. It's useful for example in the FORM tag to disable the checks for the whole form.
+	
+required	-	the field have to be filled

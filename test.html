@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>FormValidate - test page</title>
+		
+		<link rel="stylesheet" href="formValidate.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<style type="text/css" media="screen">
+			/*
+				Custom stylesheet for this example
+			*/
+		</style>
+		
+		<!-- Dependencies -->
+		<script src="libs/yahoo-dom-event.js"></script>
+		<script src="libs/selector-min.js"></script> 
+		
+		<!-- The library -->
+		<script src="formValidate.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- Startup -->
+		<script type="text/javascript" charset="utf-8">
+			YAHOO.ext.FormValidate.init();
+		</script>
+	</head>
+	<body>
+		Form 1<br />
+		<form name='test' method='POST'>
+			<input type='text' validate='number' name='userid' id='userid' /><br />
+			<input type='password' validate='required' name='password' id='password' /><br />
+			&nbsp;<br />
+			<input type='submit' name='Send'>
+		</form>
+		
+		<br />&nbsp;<br />
+		No test<br />
+		<form name='test' method='POST' validate='no'>
+			<input type='text' validate='number' name='userid' id='userid' /><br />
+			<input type='password' validate='required' name='password' id='password' /><br />
+			&nbsp;<br />
+			<input type='submit' name='Send'>
+		</form>
+		
+		<br />&nbsp;<br />
+		
+		Form 2<br />
+		<form name='test' method='POST'>
+			<input type='text' validate='number' name='userid' id='userid' /><br />
+			<input type='password' validate='required' name='password' id='password' /><br />
+			&nbsp;<br />
+			<input type='submit' name='Send'>
+		</form>
+	</body>
+</html>
